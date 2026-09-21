@@ -48,430 +48,103 @@ const ayyappan = {
 
 # 🚨 AI Production Incident Investigator
 
-An AI-assisted production incident investigation platform that analyzes application logs, identifies error patterns, builds incident timelines, detects likely failure areas, and provides structured investigation recommendations.
+An AI-assisted incident investigation tool that analyzes production logs, detects error patterns, identifies likely failure areas, builds incident timelines, and provides investigation recommendations.
 
-Designed to be **free, lightweight, and suitable for low-spec laptops**, the project works without a GPU, paid AI API, Docker, or an external database.
-
----
+Designed to be **free, lightweight, and CPU-friendly** with no GPU, paid API, Docker, or database required.
 
 ## 🌐 Live Demo
 
-🚀 **Try the deployed application:**
-
-### [🔗 AI Production Incident Investigator — Live Demo](https://ai-production-incident-investigator.onrender.com)
-
-> The application is deployed on Render and can be accessed directly from a web browser.
-
-### 🔗 Project Links
-
-* 🌐 **Live Demo:** [ai-production-incident-investigator.onrender.com](https://ai-production-incident-investigator.onrender.com)
-* 💻 **GitHub Repository:** [github.com/Ayyappanmj/ai-production-incident-investigator](https://github.com/Ayyappanmj/ai-production-incident-investigator)
+🚀 **[Live Application](https://ai-production-incident-investigator.onrender.com)**
+💻 **[GitHub Repository](https://github.com/Ayyappanmj/ai-production-incident-investigator)**
 
 ---
 
-## 📌 Project Overview
+## ✨ Features
 
-Production incidents can generate hundreds or thousands of log entries. During an incident, engineers need to quickly understand:
-
-* What went wrong?
-* When did the problem start?
-* What errors occurred repeatedly?
-* Which system component is most likely involved?
-* What should be investigated next?
-
-The **AI Production Incident Investigator** provides an automated first-pass investigation of production logs.
-
-It analyzes supplied logs and produces a structured incident investigation containing:
-
-* 🔴 Incident severity
-* 🔎 Likely failure area
-* 📊 Error and warning counts
-* 🔁 Repeated error patterns
-* 🕒 Incident timeline
+* 📋 Paste or upload `.log` / `.txt` files
+* 🚨 Incident severity detection
+* 🔍 Likely failure-area detection
+* 🔁 Repeated error grouping
+* 🕒 Incident timeline generation
 * 🧩 Root-cause signals
-* 📌 Supporting evidence
-* 🛠️ Recommended investigation steps
-* 📈 Confidence score
-* ⚠️ Analysis limitations
+* 📊 Confidence scoring
+* 🛠️ Investigation recommendations
+* ⚠️ Investigation limitations
 
-The application is designed as an **incident investigation assistant**, not an autonomous production-management system.
-
----
-
-# ✨ Features
-
-## 🔍 1. Production Log Analysis
-
-Users can either:
-
-* Paste logs directly into the application
-* Upload `.log` files
-* Upload `.txt` files
-
-The analyzer processes the supplied log content and identifies important incident signals.
-
----
-
-## 🚨 2. Incident Severity Detection
-
-The system evaluates the number and type of detected events and provides a simple severity classification.
-
-Example:
+### Supported Incident Areas
 
 ```text
-SEV-1 / HIGH
-SEV-2 / MEDIUM
-SEV-3 / LOW
-NO INCIDENT SIGNAL
-```
-
-Severity is based on the supplied logs and should not be treated as an official organizational incident classification.
-
----
-
-## 🧠 3. Likely Failure Area Detection
-
-The analyzer looks for patterns associated with common production problems.
-
-Supported areas include:
-
-```text
-Database
-Memory
-Latency
-Dependency
-Authentication
-Disk / Storage
-Deployment
-Network
-```
-
-Example:
-
-```text
-ERROR database connection refused
-ERROR database connection refused
-CRITICAL database connection refused
-```
-
-The system can identify **database** as a strong incident signal.
-
----
-
-## 🔁 4. Repeated Error Detection
-
-Repeated errors are normalized and grouped together.
-
-For example:
-
-```text
-ERROR request failed id=1001
-ERROR request failed id=1002
-ERROR request failed id=1003
-```
-
-can be grouped as a recurring error pattern.
-
-This makes high-frequency failures easier to investigate.
-
----
-
-## 🕒 5. Incident Timeline
-
-Important events are extracted into a timeline.
-
-The dashboard displays:
-
-```text
-INFO
- ↓
-WARN
- ↓
-ERROR
- ↓
-ERROR
- ↓
-CRITICAL
-```
-
-This helps engineers understand the sequence of events surrounding the incident.
-
----
-
-## 🎯 6. First Major Error
-
-The application identifies the first detected:
-
-```text
-ERROR
-CRITICAL
-FATAL
-```
-
-event.
-
-This provides a useful starting point for manual investigation.
-
----
-
-## 📊 7. Confidence Score
-
-The system calculates a lightweight confidence indicator based on the distribution of detected incident signals.
-
-Example:
-
-```text
-Likely Area: Database
-Confidence: 72%
-```
-
-The confidence value represents the strength of the detected pattern, **not the probability that the identified issue is definitely the root cause**.
-
----
-
-## 🛠️ 8. Investigation Recommendations
-
-Based on detected signals, the application suggests investigation steps.
-
-For example, for a database-related incident:
-
-```text
-Check database connection pool saturation.
-
-Check database CPU, connections, locks,
-and slow queries.
-
-Compare the incident start time with
-recent schema/query changes.
+Database • Memory • Latency • Dependency
+Authentication • Disk • Deployment • Network
 ```
 
 ---
 
-## ⚠️ 9. Investigation Limitations
-
-The system explicitly communicates that log-based signals are not proof of root cause.
-
-For real incidents, engineers should correlate:
+## 🏗️ Architecture
 
 ```text
-Logs
- +
-Metrics
- +
-Traces
- +
-Deployments
- +
-Infrastructure Events
- +
-Service Dependencies
+Web Browser
+     ↓
+FastAPI Backend
+     ↓
+Incident Analyzer
+ ├── Log Parser
+ ├── Error Detection
+ ├── Pattern Grouping
+ ├── Severity Analysis
+ ├── Timeline Builder
+ └── Recommendations
+     ↓
+Investigation Dashboard
 ```
 
 ---
 
-# 🏗️ Architecture
+## 🛠️ Tech Stack
 
-```text
-                    ┌─────────────────────────┐
-                    │       Web Browser       │
-                    │                         │
-                    │  HTML + CSS + JavaScript│
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │        FastAPI          │
-                    │       REST API          │
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │    Incident Analyzer    │
-                    ├─────────────────────────┤
-                    │                         │
-                    │  Log Parser             │
-                    │  Error Detection        │
-                    │  Error Grouping         │
-                    │  Severity Analysis      │
-                    │  Signal Detection       │
-                    │  Timeline Builder       │
-                    │  Evidence Extraction    │
-                    │  Recommendations        │
-                    │  Confidence Calculation │
-                    │                         │
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │ Investigation Dashboard │
-                    │                         │
-                    │ Severity                │
-                    │ Root-Cause Signals      │
-                    │ Errors                  │
-                    │ Timeline                │
-                    │ Recommendations         │
-                    └─────────────────────────┘
-```
+| Layer      | Technology            |
+| ---------- | --------------------- |
+| Backend    | Python, FastAPI       |
+| Frontend   | HTML, CSS, JavaScript |
+| Server     | Uvicorn               |
+| Analysis   | Python                |
+| Database   | None                  |
+| Deployment | Render                |
+| GPU        | Not Required          |
 
 ---
 
-# 🛠️ Technology Stack
-
-| Layer                | Technology                    |
-| -------------------- | ----------------------------- |
-| Programming Language | Python                        |
-| Backend              | FastAPI                       |
-| ASGI Server          | Uvicorn                       |
-| Frontend             | HTML5                         |
-| Styling              | CSS3                          |
-| Frontend Logic       | JavaScript                    |
-| Log Analysis         | Python                        |
-| API                  | REST                          |
-| Database             | Not required                  |
-| AI Model             | Not required for base version |
-| GPU                  | Not required                  |
-| Cloud API            | Not required                  |
-| Deployment           | Render                        |
-| Source Control       | Git + GitHub                  |
-
----
-
-# 📁 Project Structure
+## 📁 Structure
 
 ```text
 ai-production-incident-investigator/
-│
 ├── app/
-│   ├── __init__.py
-│   │
 │   ├── main.py
-│   │
 │   ├── analyzer.py
-│   │
 │   └── static/
 │       ├── index.html
 │       ├── app.js
 │       ├── style.css
 │       └── sample.log
-│
-├── PROJECT_BUILD_PROMPT.md
-├── README.md
 ├── requirements.txt
 ├── run.py
-└── .gitignore
+└── README.md
 ```
 
 ---
 
-# ⚙️ How It Works
-
-The investigation pipeline follows these steps:
-
-```text
-1. User provides production logs
-              ↓
-2. Logs are parsed
-              ↓
-3. Log levels are identified
-              ↓
-4. Errors and warnings are extracted
-              ↓
-5. Similar errors are grouped
-              ↓
-6. Incident signals are detected
-              ↓
-7. Severity is calculated
-              ↓
-8. Timeline is generated
-              ↓
-9. Investigation recommendations are generated
-              ↓
-10. Results are displayed in the dashboard
-```
-
----
-
-# 💻 Run Locally
-
-## Requirements
-
-You need:
-
-* Windows / Linux / macOS
-* Python 3.10+
-* Internet connection for initial dependency installation
-
-No GPU is required.
-
----
-
-## 1. Clone the Repository
+## 💻 Run Locally
 
 ```bash
 git clone https://github.com/Ayyappanmj/ai-production-incident-investigator.git
-```
-
----
-
-## 2. Enter the Project
-
-```bash
 cd ai-production-incident-investigator
-```
 
----
-
-## 3. Create a Virtual Environment
-
-### Windows
-
-```bash
 python -m venv .venv
-```
-
-### Linux / macOS
-
-```bash
-python3 -m venv .venv
-```
-
----
-
-## 4. Activate the Virtual Environment
-
-### Windows
-
-```bash
 .venv\Scripts\activate
-```
 
-### Linux / macOS
-
-```bash
-source .venv/bin/activate
-```
-
----
-
-## 5. Install Dependencies
-
-```bash
 pip install -r requirements.txt
-```
-
----
-
-## 6. Start the Application
-
-```bash
 python run.py
 ```
-
-You should see the FastAPI/Uvicorn server start.
-
----
-
-## 7. Open the Application
 
 Open:
 
@@ -479,385 +152,61 @@ Open:
 http://127.0.0.1:8000
 ```
 
----
-
-# 🧪 Testing the Application
-
-The project includes a sample incident log:
-
-```text
-app/static/sample.log
-```
-
-You can test the application by clicking:
-
-```text
-Load Sample
-       ↓
-Investigate Incident
-```
-
-The dashboard should display the detected incident information.
+Click **Load Sample → Investigate Incident** to test the application.
 
 ---
 
-# 📝 Example Input
+## 🌐 Deployment
 
-You can also paste:
+The application is deployed on **Render**.
 
-```text
-2026-09-21 10:00:01 INFO api Starting application
-2026-09-21 10:01:05 INFO api Traffic increased
-2026-09-21 10:02:10 WARN api Database connection pool 95%
-2026-09-21 10:02:15 ERROR api database connection refused
-2026-09-21 10:02:16 ERROR api database connection refused
-2026-09-21 10:02:17 ERROR api database connection refused
-2026-09-21 10:02:20 ERROR api request timeout /orders
-2026-09-21 10:02:21 ERROR api request timeout /orders
-2026-09-21 10:02:30 CRITICAL api database connection refused
-```
-
-Click:
-
-```text
-Investigate Incident
-```
-
-The application should identify database-related signals and display the incident timeline.
-
----
-
-# 📊 Example Output
-
-A typical investigation can contain:
-
-```text
-Severity
-SEV-1 / HIGH
-
-Likely Area
-Database
-
-Confidence
-High signal confidence
-
-Error Count
-6+
-```
-
-Along with:
-
-```text
-Likely Root-Cause Signals
-──────────────────────────
-Database
-Latency
-Dependency
-```
-
-And recommended investigation steps.
-
----
-
-# 🌐 Deployment
-
-The current application is deployed using **Render**.
-
-### Live Application
-
-🚀 **[Open AI Production Incident Investigator](https://ai-production-incident-investigator.onrender.com)**
-
----
-
-## Render Configuration
-
-Build command:
+**Build Command:**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Start command:
+**Start Command:**
 
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port $PORT
 ```
 
-The application does not require:
-
-* GPU
-* Docker
-* Kubernetes
-* External database
-* Paid AI API
-
-for the current version.
+🚀 **[Open Live Application](https://ai-production-incident-investigator.onrender.com)**
 
 ---
 
-# 🔐 Security Considerations
+## 🔐 Safety
 
-Production logs can contain sensitive information.
+This tool is designed for **analysis only**. It does not execute commands, restart services, modify infrastructure, or perform production rollbacks.
 
-**Do not upload real production logs containing:**
-
-```text
-API Keys
-Passwords
-Access Tokens
-Session Cookies
-Database Credentials
-Personal Information
-Customer Data
-Private Infrastructure Information
-```
-
-Use anonymized logs when demonstrating the project publicly.
-
-The application is designed as an analysis tool and does not automatically:
-
-```text
-❌ Restart services
-❌ Execute shell commands
-❌ Execute SQL
-❌ Delete files
-❌ Modify infrastructure
-❌ Perform production rollback
-```
+For demonstrations, use **anonymized logs** and never upload passwords, API keys, tokens, or customer data.
 
 ---
 
-# ⚠️ Limitations
+## 🚀 Future Enhancements
 
-The current version is a lightweight incident-analysis system.
-
-It does **not** have complete observability across:
-
-```text
-Application Logs
-Infrastructure Metrics
-Distributed Traces
-Cloud Events
-Deployment Systems
-Service Meshes
-```
-
-Therefore, the detected "likely area" should be treated as an **investigation signal**, not a confirmed root cause.
+* Local LLM integration
+* RAG-based incident knowledge base
+* OpenTelemetry integration
+* Prometheus metrics correlation
+* Distributed tracing
+* Deployment-event correlation
+* Automated incident reports
+* Slack/Teams integration
+* Incident history
 
 ---
 
-# 🚀 Future Roadmap
+## 👨‍💻 Author
 
-## Phase 1 — Current
+**Ayyappan M**
+Information Technology Graduate | Full Stack Developer
 
-* [x] Log upload
-* [x] Log parsing
-* [x] Error detection
-* [x] Warning detection
-* [x] Severity analysis
-* [x] Error grouping
-* [x] Timeline generation
-* [x] Root-cause signals
-* [x] Investigation recommendations
-* [x] Web dashboard
-* [x] Free deployment
+💻 [GitHub](https://github.com/Ayyappanmj)
 
----
+⭐ If you find this project useful, consider starring the repository.
 
-## Phase 2 — AI Enhancement
-
-* [ ] Local LLM integration
-* [ ] Natural-language incident summaries
-* [ ] RAG-based incident knowledge base
-* [ ] Historical incident comparison
-* [ ] Intelligent root-cause reasoning
-* [ ] Automated incident report generation
-
----
-
-## Phase 3 — Observability
-
-* [ ] OpenTelemetry integration
-* [ ] Prometheus metrics
-* [ ] Distributed trace analysis
-* [ ] Service dependency mapping
-* [ ] Deployment event correlation
-* [ ] Infrastructure event correlation
-
----
-
-## Phase 4 — Enterprise Features
-
-* [ ] User authentication
-* [ ] Role-based access control
-* [ ] Incident history
-* [ ] SQLite/PostgreSQL support
-* [ ] Team collaboration
-* [ ] Slack integration
-* [ ] Microsoft Teams integration
-* [ ] Email notifications
-* [ ] PDF incident reports
-* [ ] Incident management dashboard
-
----
-
-# 🤖 AI Roadmap
-
-The current version intentionally uses a lightweight analysis engine so that it can run on low-spec hardware.
-
-A future version can add a local LLM architecture:
-
-```text
-Production Logs
-       ↓
-Log Parser
-       ↓
-Error Clustering
-       ↓
-Incident Context
-       ↓
-Local LLM
-       ↓
-RAG Knowledge Base
-       ↓
-Root-Cause Analysis
-       ↓
-Incident Report
-```
-
-Possible future local AI technologies include:
-
-```text
-Ollama
-Local LLMs
-Embeddings
-Vector Database
-RAG
-```
-
-These are optional and are not required for the current application.
-
----
-
-# 🎯 Skills Demonstrated
-
-This project demonstrates practical experience with:
-
-* Python
-* FastAPI
-* REST API development
-* JavaScript
-* HTML/CSS
-* Log processing
-* Pattern recognition
-* Error classification
-* Incident investigation
-* SRE concepts
-* DevOps concepts
-* Production troubleshooting
-* Git
-* GitHub
-* Cloud deployment
-* API architecture
-* Full-stack development
-* AI-assisted software design
-
----
-
-# 📚 Learning Objectives
-
-This project was built to explore how software can assist engineers during production incidents.
-
-Key concepts demonstrated:
-
-### Site Reliability Engineering
-
-```text
-Incident Detection
-      ↓
-Investigation
-      ↓
-Evidence Collection
-      ↓
-Root-Cause Investigation
-      ↓
-Remediation
-      ↓
-Post-Incident Analysis
-```
-
-### Observability
-
-```text
-Logs
-Metrics
-Traces
-   ↓
-Observability
-```
-
-### Incident Investigation
-
-```text
-What happened?
-       ↓
-When did it happen?
-       ↓
-What changed?
-       ↓
-Which component is affected?
-       ↓
-What evidence supports the hypothesis?
-       ↓
-What should be investigated next?
-```
-
----
-
-# 📈 Project Status
-
-```text
-Status: Active Development
-
-Version: 1.0
-
-Deployment: Live
-
-Backend: FastAPI
-
-Frontend: HTML/CSS/JavaScript
-
-Hosting: Render
-
-GPU Required: No
-
-Paid API Required: No
-```
-
----
-
-# 👨‍💻 Author
-
-## Ayyappan M
-
-**Information Technology Graduate | Full Stack Developer**
-
-### Connect
-
-* 💻 GitHub: [Ayyappanmj](https://github.com/Ayyappanmj)
-* 🚀 Live Project: [AI Production Incident Investigator](https://ai-production-incident-investigator.onrender.com)
-
----
-
-# ⭐ Support
-
-If you find this project useful or interesting, consider giving the repository a ⭐ on GitHub.
-
----
-
-## 📄 License
-
-This project can be adapted and extended for educational, portfolio, and development purposes. Add a specific open-source license to the repository if you want to define formal reuse and distribution terms.
 
 
 
