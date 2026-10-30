@@ -260,15 +260,6 @@ Detects drowsiness and triggers an alarm.
 
 <br/>
 
-### 📁 Developer Portfolio
-Personal portfolio showcasing projects, skills, and experience.
-
-`React.js` `Tailwind CSS` `Vercel`
-
-🔗 [Live](https://portfolio-h8hx.vercel.app/) · [Code](https://github.com/Ayyappanmj/developer-portfolio)
-
-<br/>
-
 ### 📁 Doomscrolling
 A project exploring and addressing doomscrolling behavior.
 
