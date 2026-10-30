@@ -310,31 +310,6 @@ A project exploring and addressing doomscrolling behavior.
 
 <br/>
 
-## 📊 GitHub Stats
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=Ayyappanmj&show_icons=true&theme=nord&border_color=7dd3fc&title_color=7dd3fc&icon_color=7dd3fc&text_color=c9d1d9&bg_color=0d1117" alt="GitHub Stats" height="165"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ayyappanmj&layout=compact&theme=nord&border_color=7dd3fc&title_color=7dd3fc&text_color=c9d1d9&bg_color=0d1117" alt="Top Languages" height="165"/>
-
-<img src="https://streak-stats.demolab.com?user=Ayyappanmj&theme=nord&border=7dd3fc&ring=7dd3fc&fire=7dd3fc&currStreakLabel=7dd3fc" alt="GitHub Streak"/>
-
-</div>
-
-### 🏆 Trophies
-
-<div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=Ayyappanmj&theme=nord&no-frame=true&no-bg=true&column=7&margin-w=8" alt="trophies"/>
-</div>
-
-### 📈 Contribution Graph
-
-<div align="center">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Ayyappanmj&theme=nord&color=7dd3fc&line=7dd3fc&point=ffffff&area=true&hide_border=true" alt="activity graph" width="100%"/>
-</div>
-
-<br/>
-
 ## 🤝 Connect With Me
 
 <div align="center">
