@@ -1,6 +1,4 @@
 <div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:7dd3fc,100:0ea5e9&height=220&section=header&text=Ayyappan%20M&fontSize=60&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Full%20Stack%20Developer&descAlignY=55&descSize=22" width="100%"/> <a href="https://git.io/typing-svg"> <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=800&color=7DD3FC&center=true&vCenter=true&width=700&lines=Full+Stack+Developer;React.js+%7C+Node.js+%7C+FastAPI+%7C+Flask;AI+%2F+ML+%7C+LLMs+%7C+RAG+%7C+AI+Agents;Voice+AI+%7C+Amazon+Bedrock+%7C+MCP;Data+Analytics+%7C+Power+BI+%7C+SQL;Building+Real-World+Projects+%F0%9F%9A%80" alt="Typing SVG" /> </a> <br/> <img src="https://komarev.com/ghpvc/?username=Ayyappanmj&label=Profile%20Views&color=7dd3fc&style=flat" alt="Profile Views"/> <img src="https://img.shields.io/github/followers/Ayyappanmj?label=Followers&style=flat&color=7dd3fc" alt="Followers"/> </div> <br/>
-🧭 Who I Am
-typescript
 const ayyappan = {
   title: "Full Stack Developer",
   stack: {
