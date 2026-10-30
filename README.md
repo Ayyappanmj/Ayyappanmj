@@ -11,6 +11,12 @@
 <img src="https://komarev.com/ghpvc/?username=Ayyappanmj&label=Profile%20Views&color=7dd3fc&style=flat" alt="Profile Views"/>
 <img src="https://img.shields.io/github/followers/Ayyappanmj?label=Followers&style=flat&color=7dd3fc" alt="Followers"/>
 
+<br/>
+
+<a href="https://portfolio-h8hx.vercel.app/" target="_blank">
+  <img src="https://img.shields.io/badge/🌐%20View%20My%20Portfolio-7dd3fc?style=for-the-badge&logoColor=black" alt="Portfolio"/>
+</a>
+
 </div>
 
 <br/>
@@ -259,7 +265,7 @@ Personal portfolio showcasing projects, skills, and experience.
 
 `React.js` `Tailwind CSS` `Vercel`
 
-🔗 [Live](https://developer-portfolio-6izs2uf8n-ayyappanmj2004.vercel.app/) · [Code](https://github.com/Ayyappanmj/developer-portfolio)
+🔗 [Live](https://portfolio-h8hx.vercel.app/) · [Code](https://github.com/Ayyappanmj/developer-portfolio)
 
 <br/>
 
@@ -339,7 +345,7 @@ A project exploring and addressing doomscrolling behavior.
 <a href="mailto:ayyappanmadhuj@gmail.com">
   <img src="https://img.shields.io/badge/Email-7dd3fc?style=for-the-badge&logo=gmail&logoColor=black" alt="Email"/>
 </a>
-<a href="https://developer-portfolio-6izs2uf8n-ayyappanmj2004.vercel.app/" target="_blank">
+<a href="https://portfolio-h8hx.vercel.app/" target="_blank">
   <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"/>
 </a>
 
